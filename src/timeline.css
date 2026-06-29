@@ -1,0 +1,290 @@
+.xh-history-card {
+  --xh-border: rgb(239, 243, 244);
+  --xh-text: rgb(15, 20, 25);
+  --xh-muted: rgb(83, 100, 113);
+  --xh-faint: rgb(207, 217, 222);
+  --xh-surface: rgb(247, 249, 249);
+  --xh-hover: rgba(0, 0, 0, 0.03);
+
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--xh-border);
+  color: var(--xh-text);
+  font: 15px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 10px 16px 12px 72px;
+  position: relative;
+  background: transparent;
+  transition: background-color 120ms ease;
+  animation: xh-card-in 260ms ease-out;
+}
+
+/* Dark ("Lights out") and Dim themes both inherit the page background. */
+[data-color-mode="dark"] .xh-history-card,
+body[style*="rgb(0, 0, 0)"] .xh-history-card,
+body[style*="rgb(21, 32, 43)"] .xh-history-card {
+  --xh-border: rgb(47, 51, 54);
+  --xh-text: rgb(231, 233, 234);
+  --xh-muted: rgb(139, 152, 165);
+  --xh-faint: rgb(47, 51, 54);
+  --xh-surface: rgb(22, 24, 28);
+  --xh-hover: rgba(255, 255, 255, 0.04);
+}
+
+.xh-history-card:hover {
+  background: var(--xh-hover);
+}
+
+@keyframes xh-card-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xh-history-card {
+    animation: none;
+  }
+}
+
+.xh-context {
+  align-items: center;
+  color: var(--xh-muted);
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.xh-context-icon {
+  flex: 0 0 auto;
+  height: 15px;
+  width: 15px;
+}
+
+.xh-context-icon path {
+  fill: currentColor;
+}
+
+.xh-icon-like {
+  color: rgb(249, 24, 128);
+}
+
+.xh-icon-bookmark {
+  color: rgb(29, 155, 240);
+}
+
+.xh-context-time {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.xh-context-time::before {
+  content: "·";
+  margin: 0 5px 0 -1px;
+}
+
+.xh-card-header {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.xh-avatar {
+  border-radius: 999px;
+  height: 40px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  top: 32px;
+  width: 40px;
+}
+
+.xh-avatar-empty {
+  background: var(--xh-faint);
+}
+
+.xh-identity {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.xh-author-line {
+  align-items: baseline;
+  display: flex;
+  gap: 5px;
+  min-width: 0;
+}
+
+.xh-author {
+  color: inherit;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xh-verified {
+  color: rgb(29, 155, 240);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 16px;
+  width: 16px;
+}
+
+.xh-verified svg {
+  display: block;
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}
+
+.xh-meta,
+.xh-card-footer,
+.xh-open-link,
+.xh-quote-meta {
+  color: var(--xh-muted);
+  font-size: 13px;
+}
+
+.xh-text {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.xh-media {
+  border: 1px solid var(--xh-faint);
+  border-radius: 12px;
+  display: grid;
+  gap: 2px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.xh-media-1 {
+  grid-template-columns: 1fr;
+}
+
+.xh-media-2,
+.xh-media-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.xh-media-3 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.xh-media-3 .xh-media-item:first-child {
+  grid-row: span 2;
+}
+
+.xh-media-item {
+  aspect-ratio: 16 / 10;
+  background: var(--xh-surface);
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.xh-media-item img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 200ms ease;
+  width: 100%;
+}
+
+.xh-media-item:hover img {
+  transform: scale(1.015);
+}
+
+.xh-media-pill {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 999px;
+  bottom: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  left: 8px;
+  padding: 2px 7px;
+  position: absolute;
+}
+
+.xh-quote {
+  border: 1px solid var(--xh-faint);
+  border-radius: 12px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.xh-quote-header {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  min-width: 0;
+}
+
+.xh-quote-avatar {
+  border-radius: 999px;
+  flex: 0 0 auto;
+  height: 24px;
+  object-fit: cover;
+  width: 24px;
+}
+
+.xh-quote-identity {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.xh-quote-author-line {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+}
+
+.xh-quote-author {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xh-quote-text {
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+
+.xh-card-footer {
+  margin-top: 10px;
+}
+
+.xh-open-link {
+  align-items: center;
+  color: rgb(29, 155, 240);
+  display: inline-flex;
+  gap: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.xh-open-link::after {
+  content: "↗";
+  font-size: 12px;
+}
+
+.xh-open-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .xh-history-card {
+    padding-left: 64px;
+  }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>X History Mixer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header class="brand">
+        <img class="brand-mark" src="../icons/icon-48.png" alt="" width="30" height="30" />
+        <div class="brand-text">
+          <h1>X History Mixer</h1>
+          <p class="tagline">Resurfaces your old likes &amp; bookmarks in Home.</p>
+        </div>
+      </header>
+
+      <p id="status" class="status">Loading…</p>
+      <p id="syncProgress" class="sync-progress">Reading sync state…</p>
+
+      <section class="counts" aria-label="Archive counts">
+        <div>
+          <strong id="totalCount">0</strong>
+          <span>Total</span>
+        </div>
+        <div>
+          <strong id="likesCount">0</strong>
+          <span>Likes</span>
+        </div>
+        <div>
+          <strong id="bookmarksCount">0</strong>
+          <span>Bookmarks</span>
+        </div>
+      </section>
+      <p id="lastSync" class="last-sync"></p>
+
+      <section class="settings" aria-label="Timeline settings">
+        <label class="row">
+          <span>Mix into Home</span>
+          <input id="enabled" type="checkbox" />
+        </label>
+        <label class="row">
+          <span>Show one every</span>
+          <span class="field-suffix">
+            <input id="interval" type="number" min="2" max="50" step="1" />
+            <em>posts</em>
+          </span>
+        </label>
+        <div class="row source-row">
+          <span>Pull from</span>
+          <div class="source-options" aria-label="Inserted archive sources">
+            <label>
+              <input id="mixLikes" type="checkbox" />
+              <span>Likes</span>
+            </label>
+            <label>
+              <input id="mixBookmarks" type="checkbox" />
+              <span>Bookmarks</span>
+            </label>
+          </div>
+        </div>
+        <label class="row">
+          <span>Sync depth</span>
+          <span class="field-suffix">
+            <input id="maxPages" type="number" min="1" max="1000" step="1" />
+            <em>pages</em>
+          </span>
+        </label>
+      </section>
+
+      <section class="actions" aria-label="Sync actions">
+        <button id="syncBoth" type="button">Sync likes &amp; bookmarks</button>
+        <button id="syncLikes" class="secondary" type="button">Likes</button>
+        <button id="syncBookmarks" class="secondary" type="button">Bookmarks</button>
+        <button id="stopSync" class="secondary danger" type="button" hidden>Stop sync</button>
+      </section>
+
+      <button id="clearArchive" class="ghost" type="button">Clear local archive</button>
+
+      <p class="footer-note">Your archive stays on this device — nothing is uploaded.</p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
