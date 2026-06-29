@@ -9,6 +9,21 @@ nostalgia while you scroll.
 > Everything stays on your machine. Your posts are never sent to any server other
 > than X's own API, which your browser already talks to.
 
+## What it looks like
+
+<table align="center">
+  <tr valign="top">
+    <td align="center">
+      <img src="docs/timeline-card.png" alt="A bookmarked post mixed into the Home timeline" width="440"><br>
+      <sub><b>A saved post, mixed right into your Home feed</b></sub>
+    </td>
+    <td align="center">
+      <img src="docs/popup.png" alt="The X History Mixer popup" width="300"><br>
+      <sub><b>One click to sync and tune the mix</b></sub>
+    </td>
+  </tr>
+</table>
+
 ## Features
 
 - **Mixes memories into Home** — inserts one of your archived posts every _N_ native tweets.
